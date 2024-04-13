@@ -1,6 +1,6 @@
 <script>
 export default {
-  props: { title: $string },
+  props: { title: String },
 };
 </script>
 
