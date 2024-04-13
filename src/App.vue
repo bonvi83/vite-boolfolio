@@ -1,33 +1,25 @@
 <script>
-// Global state store
-// import { store } from "./store";
-
-// Import components
-import AppHeader from "./components/AppHeader.vue";
-import AppMain from "./components/AppMain.vue";
-import AppFooter from "./components/AppFooter.vue";
+import axios from "axios";
 
 export default {
   data() {
     return {
-      // store,
+      title: "Boolpress Frontend",
     };
   },
 
-  components: {
-    AppHeader,
-    AppMain,
-    AppFooter,
+  created() {
+    axios.get("http://127.0.0.1:8000/").then((response) => {});
   },
 };
 </script>
 
 <template>
-  <app-header />
-  <app-main />
-  <app-footer />
+  <div class="container mt 5">
+    <h1>{{ title }}</h1>
+  </div>
 </template>
 
 <style lang="scss">
-@use "./style/general.scss";
+@use "/src/scss/general.scss" as *;
 </style>
