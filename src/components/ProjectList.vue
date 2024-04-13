@@ -11,11 +11,18 @@ export default {
     };
   },
 
+  methods: {
+    fetchProjects(endpoint = api.baseUrl + "projects") {
+      axios.get(endpoint).then((response) => {
+        store.projects = response.data.data;
+      });
+    },
+  },
+
   components: { ProjectCard },
 
   created() {
-    axios.get(api.baseUrl + "projects").then((response) => {});
-    store.projects = response.data.data;
+    this.fetchProjects();
   },
 };
 </script>
