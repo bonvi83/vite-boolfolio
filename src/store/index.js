@@ -6,5 +6,5 @@ export const api = {
 
 // reactive lo uso quando il dato può cambiare
 export const store = reactive({
-  // dati reattivi
+  projects: [],
 });

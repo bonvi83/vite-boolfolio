@@ -1,43 +1,29 @@
 <script>
-import axios from "axios";
-import { api } from "./store";
+import AppHeader from "./components/AppHeader.vue";
+import ProjectList from "./components/ProjectList.vue";
 
 export default {
   data() {
     return {
       title: "Boolpress Frontend",
-      projects: [],
     };
   },
+
+  components: { AppHeader, ProjectList },
 
   created() {
     axios.get(api.baseUrl + "projects").then((response) => {});
     // console.log(response.data.data);
-    this.projects = response.data.data;
+    store.projects = response.data.data;
   },
 };
 </script>
 
 <template>
+  <app-header :title="title" />
+
   <div class="container mt-5">
-    <h1>{{ title }}</h1>
-    <div v-for="project in projects">
-      <ul>
-        <li>
-          <strong>ID:</strong>
-          {{ project.id }}
-        </li>
-        <li>
-          <strong>Title:</strong>
-          {{ project.title }}
-        </li>
-        <li>
-          <strong>Content:</strong>
-          {{ project.content }}
-        </li>
-      </ul>
-      <hr />
-    </div>
+    <project-list />
   </div>
 </template>
 
