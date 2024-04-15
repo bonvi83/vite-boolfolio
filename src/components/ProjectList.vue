@@ -37,7 +37,11 @@ export default {
     <project-card v-for="project in store.projects" :project="project" />
   </div>
 
-  <pagination-ui @chenge-page="fetchProjects" :pagination="pagination" />
+  <pagination-ui
+    @chenge-page="fetchProjects"
+    :pagination="pagination"
+    class="mt-3"
+  />
 </template>
 
 <style lang="scss" scoped></style>

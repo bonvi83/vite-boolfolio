@@ -1,6 +1,5 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
-import ProjectList from "./components/ProjectList.vue";
 
 export default {
   data() {
@@ -9,7 +8,7 @@ export default {
     };
   },
 
-  components: { AppHeader, ProjectList },
+  components: { AppHeader },
 
   created() {
     axios.get(api.baseUrl + "projects").then((response) => {});
@@ -23,7 +22,7 @@ export default {
   <app-header :title="title" />
 
   <div class="container mt-5 pb-5">
-    <project-list />
+    <router-view />
   </div>
 </template>
 

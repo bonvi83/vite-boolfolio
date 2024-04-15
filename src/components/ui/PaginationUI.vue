@@ -6,7 +6,6 @@ export default {
 </script>
 
 <template>
-  paginazione
   <nav aria-label="Page navigation">
     <ul class="pagination">
       <li
