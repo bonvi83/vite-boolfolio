@@ -1,6 +1,7 @@
 <script>
 export default {
   props: { pagination: Array },
+  emit: ["change-page"],
 };
 </script>
 
@@ -10,7 +11,7 @@ export default {
     <ul class="pagination">
       <li
         v-for="link in pagination"
-        @click="fetchProjects(link.url)"
+        @click="$emit('change-page', link.url)"
         class="page-item"
         :class="{
           active: link.active,
