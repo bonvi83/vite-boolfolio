@@ -34,7 +34,7 @@ export default {
     <project-card v-for="project in store.projects" :project="project" />
   </div>
 
-  <nav aria-label="Page navigation example">
+  <nav aria-label="Page navigation">
     <ul class="pagination">
       <li
         @click="fetchProjects(link.url)"
