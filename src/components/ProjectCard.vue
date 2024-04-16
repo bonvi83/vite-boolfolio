@@ -1,10 +1,12 @@
 <script>
 export default {
-  props: { project: Object },
+  props: { project: Object, isDetail: Boolean },
   computed: {
     abstract() {
       const content = this.project.content;
-      return content.length > 45 ? content.substr(0, 45) + "..." : content;
+      return content.length > 45 && !this.isDetail
+        ? content.substr(0, 45) + "..."
+        : content;
     },
   },
 };
@@ -16,6 +18,7 @@ export default {
       <img
         :src="project.image ? project.image : 'https://placehold.co/600x400'"
         class="card-img-top"
+        :class="isDetail ? 'w-50' : ''"
       />
       <div class="card-body">
         <span
@@ -23,9 +26,10 @@ export default {
           :style="'background-color : ' + project.category.color"
           >{{ project.category.label }}</span
         >
-        <h5 class="card-title">{{ project.title }}</h5>
-        <p class="card-text">{{ abstract }}</p>
+        <h2 class="card-title h5">{{ project.title }}</h2>
+        <p class="card-text float-start">{{ abstract }}</p>
         <router-link
+          v.if="!isDetail"
           :to="{ name: 'project', params: { slug: project.slug } }"
           class="btn btn-primary"
           >Vedi altro</router-link

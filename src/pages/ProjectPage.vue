@@ -2,12 +2,16 @@
 import axios from "axios";
 import { api } from "../store";
 
+import ProjectCard from '../components/ProjectCard.vue';
+
 export default {
   data() {
     return {
       project: null
     }
   },
+
+  components:{ProjectCard},
 
   created() {
     const postSlug = this.$route.params.slug;
@@ -19,7 +23,9 @@ export default {
 </script>
 
 <template>
-  <h1>Il mio Progetto {{ $route.params.slug }}</h1>
+  <div class="row">
+    <project-card :project="project" :isDetail="true" />
+  </div>
 </template>
 
 <style lang="scss">
