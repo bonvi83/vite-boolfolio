@@ -1,7 +1,11 @@
 <script>
 import ProjectList from "../components/ProjectList.vue";
 export default {
-  data() {},
+  data() {
+    return {
+      title: "Pagina del Blog",
+    };
+  },
   components: { ProjectList },
 };
 </script>
@@ -9,7 +13,7 @@ export default {
 <template>
   <h1>{{ title }}</h1>
 
-  <project-list />
+  <!-- <project-list /> -->
 </template>
 
 <style lang="scss">

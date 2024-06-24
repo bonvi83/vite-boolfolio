@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from "vue-router";
 
 import HomePage from "./pages/HomePage.vue";
 import BlogPage from "./pages/BlogPage.vue";
-import PostPage from "./pages/ProjectPage.vue";
+import ProjectPage from "./pages/ProjectPage.vue";
 
 const router = createRouter({
   history: createWebHistory(),

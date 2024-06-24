@@ -1,5 +1,7 @@
 <script>
 import AppHeader from "./components/AppHeader.vue";
+import axios from "axios";
+import { api, store } from "./store";
 
 export default {
   data() {
@@ -11,9 +13,10 @@ export default {
   components: { AppHeader },
 
   created() {
-    axios.get(api.baseUrl + "projects").then((response) => {});
-    // console.log(response.data.data);
-    store.projects = response.data.data;
+    axios.get(api.baseUrl + "projects").then((response) => {
+      // console.log(response.data.data);
+      store.projects = response.data.data;
+    });
   },
 };
 </script>

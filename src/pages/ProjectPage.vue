@@ -2,20 +2,21 @@
 import axios from "axios";
 import { api } from "../store";
 
-import ProjectCard from '../components/ProjectCard.vue';
+import ProjectCard from "../components/ProjectCard.vue";
 
 export default {
   data() {
     return {
-      project: null
-    }
+      project: null,
+    };
   },
 
-  components:{ProjectCard},
+  components: { ProjectCard },
 
   created() {
+    console.log(this.$route.params.slug);
     const postSlug = this.$route.params.slug;
-    axios.get(api.baseUrl + /projects/$projectSlug).then((responde) => {
+    axios.get(api.baseUrl + `/projects/${postSlug}`).then((response) => {
       this.project = response.data;
     });
   },
